@@ -9,7 +9,7 @@ public class WeeklyPlan
     [Required]
     public DateTime WeekStartDate { get; set; }
       
-    [Range(0, 10080)] // Max 7 days * 24 hours * 60 minutes
+    [Range(0, 10080)] 
     public int PlannedHoursListening { get; set; }
       
     [Range(0, 10080)]

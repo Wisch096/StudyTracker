@@ -8,10 +8,10 @@ public class Activity
       
     [Required]
     [StringLength(50)]
-    public string Type { get; set; } = string.Empty; // Listening, Speaking, Vocabulary, Immersion
+    public string Type { get; set; } = string.Empty; 
       
     [Required]
-    [Range(1, 1440)] // Max 24 hours in minutes
+    [Range(1, 1440)] 
     public int Duration { get; set; }
       
     [StringLength(500)]
