@@ -1,4 +1,5 @@
-﻿using StudyTracker.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using StudyTracker.Models;
 
 namespace StudyTracker.Data;
 
@@ -21,7 +22,7 @@ public class ApplicationDbContext : DbContext
             entity.Property(e => e.Type).IsRequired().HasMaxLength(50);
             entity.Property(e => e.Description).HasMaxLength(500);
             entity.Property(e => e.Date).IsRequired();
-            entity.Property(e => e.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("NOW()");
               
             entity.HasIndex(e => e.Date);
             entity.HasIndex(e => e.Type);
@@ -31,8 +32,8 @@ public class ApplicationDbContext : DbContext
         {
             entity.HasKey(e => e.Id);
             entity.Property(e => e.WeekStartDate).IsRequired();
-            entity.Property(e => e.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
-            entity.Property(e => e.UpdatedAt).HasDefaultValueSql("GETUTCDATE()");
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("NOW()");
+            entity.Property(e => e.UpdatedAt).HasDefaultValueSql("NOW()");
               
             entity.HasIndex(e => e.WeekStartDate).IsUnique();
         });

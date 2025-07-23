@@ -1,4 +1,5 @@
-﻿using StudyTracker.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using StudyTracker.Data;
 using StudyTracker.Models;
 using StudyTracker.Models.DTOs;
 

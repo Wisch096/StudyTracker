@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using StudyTracker.Data;
 using StudyTracker.Models;
 using StudyTracker.Models.DTOs;
