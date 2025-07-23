@@ -19,7 +19,9 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Activity>(entity =>
         {
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.Type).IsRequired().HasMaxLength(50);
+            entity.Property(e => e.Type)
+                .HasConversion<string>() 
+                .IsRequired();
             entity.Property(e => e.Description).HasMaxLength(500);
             entity.Property(e => e.Date).IsRequired();
             entity.Property(e => e.CreatedAt).HasDefaultValueSql("NOW()");

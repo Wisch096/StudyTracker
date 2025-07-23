@@ -57,7 +57,7 @@ namespace StudyTracker.Migrations
 
                     b.HasIndex("Type");
 
-                    b.ToTable("Activities");
+                    b.ToTable("Activities", (string)null);
                 });
 
             modelBuilder.Entity("StudyTracker.Models.WeeklyPlan", b =>
@@ -98,7 +98,7 @@ namespace StudyTracker.Migrations
                     b.HasIndex("WeekStartDate")
                         .IsUnique();
 
-                    b.ToTable("WeeklyPlans");
+                    b.ToTable("WeeklyPlans", (string)null);
                 });
 #pragma warning restore 612, 618
         }

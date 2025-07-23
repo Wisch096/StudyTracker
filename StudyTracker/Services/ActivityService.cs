@@ -2,6 +2,7 @@
 using StudyTracker.Data;
 using StudyTracker.Models;
 using StudyTracker.Models.DTOs;
+using StudyTracker.Models.Enum;
 
 namespace StudyTracker.Services;
 
@@ -81,7 +82,7 @@ public class ActivityService : IActivityService
             return true;
         }
       
-        public async Task<IEnumerable<ActivityDto>> GetActivitiesByTypeAsync(string type)
+        public async Task<IEnumerable<ActivityDto>> GetActivitiesByTypeAsync(ActivityType type)
         {
             var activities = await _context.Activities
                 .Where(a => a.Type == type)

@@ -1,4 +1,5 @@
 ﻿using StudyTracker.Models.DTOs;
+using StudyTracker.Models.Enum;
 
 namespace StudyTracker.Services;
 
@@ -10,5 +11,5 @@ public interface IActivityService
     Task<ActivityDto> CreateActivityAsync(CreateActivityDto createActivityDto);
     Task<ActivityDto?> UpdateActivityAsync(int id, CreateActivityDto updateActivityDto);
     Task<bool> DeleteActivityAsync(int id);
-    Task<IEnumerable<ActivityDto>> GetActivitiesByTypeAsync(string type);
+    Task<IEnumerable<ActivityDto>> GetActivitiesByTypeAsync(ActivityType type);
 }

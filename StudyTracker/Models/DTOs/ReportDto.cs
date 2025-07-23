@@ -1,4 +1,6 @@
-﻿namespace StudyTracker.Models.DTOs;
+﻿using StudyTracker.Models.Enum;
+
+namespace StudyTracker.Models.DTOs;
 
 public class WeeklyReportDto
 {
@@ -22,7 +24,7 @@ public class MonthlyReportDto
   
 public class ActivitySummaryDto
 {
-    public string Type { get; set; } = string.Empty;
+    public ActivityType Type { get; set; }
     public int PlannedMinutes { get; set; }
     public int CompletedMinutes { get; set; }
     public double CompletionPercentage { get; set; }

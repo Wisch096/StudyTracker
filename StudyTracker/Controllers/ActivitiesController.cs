@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StudyTracker.Models.DTOs;
+using StudyTracker.Models.Enum;
 using StudyTracker.Services;
 
 namespace StudyTracker.Controllers;
@@ -19,15 +20,15 @@ public class ActivitiesController : ControllerBase
     public async Task<ActionResult<IEnumerable<ActivityDto>>> GetActivities(
         [FromQuery] DateTime? startDate = null,
         [FromQuery] DateTime? endDate = null,
-        [FromQuery] string? type = null)
+        [FromQuery] ActivityType? type = null)
     {
         try
         {
             IEnumerable<ActivityDto> activities;
 
-            if (!string.IsNullOrEmpty(type))
+            if (type.HasValue)
             {
-                activities = await _activityService.GetActivitiesByTypeAsync(type);
+                activities = await _activityService.GetActivitiesByTypeAsync(type.Value);
             }
             else if (startDate.HasValue && endDate.HasValue)
             {

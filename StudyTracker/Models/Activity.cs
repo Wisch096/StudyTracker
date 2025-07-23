@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using StudyTracker.Models.Enum;
 
 namespace StudyTracker.Models;
 
@@ -8,7 +9,7 @@ public class Activity
       
     [Required]
     [StringLength(50)]
-    public string Type { get; set; } = string.Empty; 
+    public ActivityType Type { get; set; }
       
     [Required]
     [Range(1, 1440)] 

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using StudyTracker.Models.Enum;
 
 namespace StudyTracker.Models.DTOs;
 
@@ -7,7 +8,7 @@ public class ActivityDto
     public int Id { get; set; }
       
     [Required(ErrorMessage = "Tipo de atividade é obrigatório")]
-    public string Type { get; set; } = string.Empty;
+    public ActivityType Type { get; set; }
       
     [Required(ErrorMessage = "Duração é obrigatória")]
     [Range(1, 1440, ErrorMessage = "Duração deve ser entre 1 e 1440 minutos")]
@@ -23,7 +24,7 @@ public class ActivityDto
 public class CreateActivityDto
 {
     [Required(ErrorMessage = "Tipo de atividade é obrigatório")]
-    public string Type { get; set; } = string.Empty;
+    public ActivityType Type { get; set; }
       
     [Required(ErrorMessage = "Duração é obrigatória")]
     [Range(1, 1440, ErrorMessage = "Duração deve ser entre 1 e 1440 minutos")]

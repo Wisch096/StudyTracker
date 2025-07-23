@@ -2,6 +2,7 @@
 using StudyTracker.Data;
 using StudyTracker.Models;
 using StudyTracker.Models.DTOs;
+using StudyTracker.Models.Enum;
 
 namespace StudyTracker.Services;
 
@@ -115,16 +116,16 @@ public class ReportService : IReportService
                 });
         }
       
-        private static int GetPlannedMinutesByType(WeeklyPlan? weeklyPlan, string type)
+        private static int GetPlannedMinutesByType(WeeklyPlan? weeklyPlan, ActivityType type)
         {
             if (weeklyPlan == null) return 0;
           
             return type switch
             {
-                "Listening" => weeklyPlan.PlannedHoursListening,
-                "Speaking" => weeklyPlan.PlannedHoursSpeaking,
-                "Vocabulary" => weeklyPlan.PlannedHoursVocabulary,
-                "Immersion" => weeklyPlan.PlannedHoursImmersion,
+                ActivityType.Listening => weeklyPlan.PlannedHoursListening,
+                ActivityType.Speaking => weeklyPlan.PlannedHoursSpeaking,
+                ActivityType.Reading => weeklyPlan.PlannedHoursVocabulary,
+                ActivityType.Writing => weeklyPlan.PlannedHoursImmersion,
                 _ => 0
             };
         }
